@@ -1,0 +1,82 @@
+:root {
+  --text-color: #64ffda;
+}
+
+/* l1: 11656.0234375
+   l2: 8476.0615234375
+*/
+
+#logo path {
+  stroke: var(--text-color);
+  stroke-dasharray: 11656.0234375;
+  stroke-dashoffset: 11656.0234375;
+  animation: line-anim 1.5s ease forwards;
+}
+#logo polygon {
+  stroke: var(--text-color);
+  stroke-dasharray: 8476.0615234375;
+  stroke-dashoffset: 8476.0615234375;
+  animation:
+    line-anim 1.5s ease forwards 1.5s,
+    fill-anim 1.5s ease forwards 3s;
+}
+
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill-anim {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--text-color);
+  }
+}
+
+.upperPart {
+  animation: upperPart 1s ease forwards 3.75s;
+}
+
+.lowerPart {
+  animation: lowerPart 1s ease forwards 3.75s;
+}
+
+@keyframes upperPart {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    display: none;
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes lowerPart {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    display: none;
+    transform: translateY(100vh);
+  }
+}
+
+.mainStart {
+  animation: mainStart 1s ease forwards 4.2s;
+}
+
+@keyframes mainStart {
+  from {
+    display: "block";
+    opacity: 1;
+    height: 100%;
+  }
+  to {
+    display: none;
+    opacity: 0;
+    height: 0;
+    z-index: -999;
+  }
+}
